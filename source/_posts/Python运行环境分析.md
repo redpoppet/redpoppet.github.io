@@ -1,7 +1,7 @@
 ---
 title: Python运行环境分析
 date: 2019-05-18 16:31:42
-categories: Python
+categories: Technical Innovation
 tags:
      - python
      - pip

@@ -1,12 +1,12 @@
 ---
-title: about
+title: <center><h1>苏成龙</h1></center>
 date: 2019-05-18 16:03:36
 type: about
 ---
 
- <left>
-     <h1>苏成龙&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; Python工程师 </h1>
- </left>
+ <!-- <left>
+     <h1>苏成龙&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;Python工程师 </h1>
+ </left> -->
 ---
 ## 个人信息 
 

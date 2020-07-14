@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hub of Poppet">
 <meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-12T09:47:49.114Z">
+<meta property="og:updated_time" content="2020-07-14T11:42:02.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模型调度那些事儿">
 <meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
@@ -368,7 +368,7 @@
 <h3 id="模型线上回滚"><a href="#模型线上回滚" class="headerlink" title="模型线上回滚"></a>模型线上回滚</h3><p>当最近两个版本的模型均不能正常工作，可以联系运维，申请线上版本回退。</p>
 <p>目前，线上运维备份机制主要是通过软链接的形式进行更新与备份，可以通过更改软连接的指向地址来回滚线上版本。举个例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">subgraph bak  </span><br><span class="line">model_ra_0811 --- model_ra_0812</span><br><span class="line">model_ra_0812 --- model_ra_0813</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subgraph product</span><br><span class="line">model_ra --&gt; model_ra_0813</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<center>正常状态</center><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph BT</span><br><span class="line">subgraph bak  </span><br><span class="line">model_ra_0811 --- model_ra_0812</span><br><span class="line">model_ra_0812 --- model_ra_0813</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subgraph product</span><br><span class="line">model_ra --&gt; model_ra_0811</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure><br><br><center>回滚后状态</center>
+<center>正常状态</center><br><br><br><br><pre class="mermaid">graph TB<br>A1-.-B1<br>A2—B2<br>A3===B3</pre><br><br><br><br><center>回滚后状态</center>
 
 
 <h3 id="模型表备份"><a href="#模型表备份" class="headerlink" title="模型表备份"></a>模型表备份</h3><p>模型通常都是以输出结果表的形式来和数仓任务进行交互。初始交互方式如下图所示：</p>
@@ -447,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/18/Python运行环境分析/" rel="prev" title="Python运行环境分析">
-                Python运行环境分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/18/To_B_项目实施方法论/" rel="prev" title="在览众，项目居然是这么做的！！！">
+                在览众，项目居然是这么做的！！！ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,6 +620,8 @@
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
 
 
 

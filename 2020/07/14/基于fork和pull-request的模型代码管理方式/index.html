@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="算法平台,">
+  <meta name="keywords" content="代码管理,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="如何从烟囱型的算法开发模式升级为台阶型的算法开发模型？">
-<meta name="keywords" content="算法平台">
+<meta name="description" content="1 设计目的 公司目前拥有模型库，产品模型库，项目模型库三级代码存储机制，在目前开始基于主线模型去开发项目模型的场景下，从以下几点出发，想在公司内部推行主流的模型代码分发流程。1：在项目初始的时候，避免建模人员私自采用其他项目的非标准代码，造成偏离主线的情况2：为了推行统一的代码规范和通用模块，模型模块建设方法3：更好的接收项目中的模型特性反馈4：为算法人员接受项目中开发模型提供统一反馈接口5：为">
+<meta name="keywords" content="代码管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法开发平台构建思路.md">
-<meta property="og:url" content="http://yoursite.com/2020/06/22/算法开发平台构建思路/index.html">
+<meta property="og:title" content="基于fork和pull request的模型代码管理方式">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/基于fork和pull-request的模型代码管理方式/index.html">
 <meta property="og:site_name" content="Hub of Poppet">
-<meta property="og:description" content="如何从烟囱型的算法开发模式升级为台阶型的算法开发模型？">
+<meta property="og:description" content="1 设计目的 公司目前拥有模型库，产品模型库，项目模型库三级代码存储机制，在目前开始基于主线模型去开发项目模型的场景下，从以下几点出发，想在公司内部推行主流的模型代码分发流程。1：在项目初始的时候，避免建模人员私自采用其他项目的非标准代码，造成偏离主线的情况2：为了推行统一的代码规范和通用模块，模型模块建设方法3：更好的接收项目中的模型特性反馈4：为算法人员接受项目中开发模型提供统一反馈接口5：为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-24T03:56:22.838Z">
+<meta property="og:updated_time" content="2020-07-14T04:08:42.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法开发平台构建思路.md">
-<meta name="twitter:description" content="如何从烟囱型的算法开发模式升级为台阶型的算法开发模型？">
+<meta name="twitter:title" content="基于fork和pull request的模型代码管理方式">
+<meta name="twitter:description" content="1 设计目的 公司目前拥有模型库，产品模型库，项目模型库三级代码存储机制，在目前开始基于主线模型去开发项目模型的场景下，从以下几点出发，想在公司内部推行主流的模型代码分发流程。1：在项目初始的时候，避免建模人员私自采用其他项目的非标准代码，造成偏离主线的情况2：为了推行统一的代码规范和通用模块，模型模块建设方法3：更好的接收项目中的模型特性反馈4：为算法人员接受项目中开发模型提供统一反馈接口5：为">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/06/22/算法开发平台构建思路/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/14/基于fork和pull-request的模型代码管理方式/">
 
 
 
 
 
-  <title>算法开发平台构建思路.md | Hub of Poppet</title>
+  <title>基于fork和pull request的模型代码管理方式 | Hub of Poppet</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/22/算法开发平台构建思路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/基于fork和pull-request的模型代码管理方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="redpoppet">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法开发平台构建思路.md</h1>
+          <h1 class="post-title" itemprop="name headline">基于fork和pull request的模型代码管理方式</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-22T22:20:54+08:00">
-                2020-06-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T12:08:01+08:00">
+                2020-07-14
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法平台/" itemprop="url" rel="index">
-                    <span itemprop="name">算法平台</span>
+                  <a href="/categories/Technical-Innovation/" itemprop="url" rel="index">
+                    <span itemprop="name">Technical Innovation</span>
                   </a>
                 </span>
 
@@ -352,7 +352,24 @@
       
 
       
-        <p>如何从烟囱型的算法开发模式升级为台阶型的算法开发模型？</p>
+        <p>1 设计目的</p>
+<p>公司目前拥有模型库，产品模型库，项目模型库三级代码存储机制，在目前开始基于主线模型去开发项目模型的场景下，从以下几点出发，想在公司内部推行主流的模型代码分发流程。<br>1：在项目初始的时候，避免建模人员私自采用其他项目的非标准代码，造成偏离主线的情况<br>2：为了推行统一的代码规范和通用模块，模型模块建设方法<br>3：更好的接收项目中的模型特性反馈<br>4：为算法人员接受项目中开发模型提供统一反馈接口<br>5：为诸多准主线模型进入主线模型库提供标准的接入流程</p>
+<p>2 代码管理架构</p>
+<p>2.1 代码管理架构图【逐级派生和逐级合并】</p>
+<p>2.2 代码管理架构图【允许越级派生和越级合并】</p>
+<p>2.3 实施前提<br>整个代码管理方式强调以下几点原则：<br>1：所有代码必须通过公司内部gitlab平台托管，不接受任何的其他分发方式<br>2：所有需要采用主线模型的项目的模型仓库必须由运维人员克隆主线模型库到对应的项目模型仓库中<br>3：每个主线模型要和其他主线模型有明显的界限，每个主线模型必须保证单一职能，例如补调就只做补调，不能包含返仓。<br>4：项目作为产品线的子群组。</p>
+<ol>
+<li>三级模型库介绍</li>
+</ol>
+<p>3.1 主线模型库：</p>
+<p>主线模型具备3+N个分支，3代表feature_retail和feature_apparel分支和feature_innovation分支，N为开发测试模型库时使用的其他诸如master,develop,feature等分支。<br>master，release,develop包含所有模型模块和所有的通用模块，用于集成测试所有的主线模型和开发通用组件。<br>feature_retail和feature_apparel分支和feature_innovation分支含有各个BU的所有主线模型和所有的通用模块，方便做模型代码保密和迁移到产品模型库中。<br>主线模型库由算法人员和主线模型负责人托管。<br>主线模型库所在的群组名为algorithm</p>
+<p>3.2 产品模型仓库：</p>
+<p>产品模型库派生自主线模型库，生鲜产品模型仓库和服装产品模型仓库和创新模型仓库分别派生，并由运维人员删除不在权限内的分支。<br>生鲜产品模型仓库只包含生鲜行业对应的主线模型和模型库中的所有通用模块，<br>服装产品模型仓库只包含服装行业对应的主线模型和模型库中的所有通用模块<br>创新模型仓库只包含创新行业对应的主线模型和模型库中的所有通用模块<br>产品模型仓库的修改，如果想同步到主线模型库，需要提取pull request 到主线模型库，由主线模型库的托管人员和算法人员审议是否接受<br>生鲜产品模型仓库的群组名为retail，服装产品模型仓库的群组名为apparel，创新模型仓库的群组名为innovation.<br>三个BU的模型仓库由对应的BU主线模型负责人和算法人员维护。</p>
+<p>3.3 项目模型仓库：</p>
+<p>项目模型仓库派生自产品模型仓库，生鲜项目模型库派生自生鲜产品模型库，服装项目模型仓库派生自服装产品模型库，由运维人员在创建时删除对应的非权限分支，特殊情况下可以允许项目直接从主线模型派生。<br>项目模型仓库所在仓库为各自产品线的子群组，不再新建顶级群组，防止多个项目派生后重名。通过子群组的唯一性机制来保证唯一性。此处可能需要将项目的所有代码仓库全部迁移到该子群组下面，避免混乱，也方便运维统一管理。<br>项目模型仓库新增探索模型需要沿用派生代码仓库的架构设计风格，模块切割理念和代码文档规范。<br>项目模型仓库中已经稳定的版本如果需要进入主线模型，需要提请pull request 请求先合并到产品模型中。再由产品模型提请pull request请求到主线模型仓库中。<br>项目模型仓库由项目建模人员和项目算法人员共同托管。</p>
+<ol start="4">
+<li>技术储备及影响<br>此机制不影响单个代码仓库的原有开发管理方式，仅仅为多个仓库的代码利用和集中提供方便。<br>1：需要对产品人员和建模人员告知此项机制，可能需要有必要的培训<br>2：需要对运维人员在gitlab上创建代码仓库流程上有部分修改，可以改为运维人员创建子群组，并且fork 对应的产品代码仓库到此子群组，并删除对应的敏感分支。<br>3：需要对各级的pull request的处理方式和相关人选进行讨论确定。</li>
+</ol>
 
       
     </div>
@@ -370,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法平台/" rel="tag"># 算法平台</a>
+            <a href="/tags/代码管理/" rel="tag"># 代码管理</a>
           
         </div>
       
@@ -383,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/12/基于Pycharm和Docker的本地开发环境代码加密/" rel="next" title="基于Pycharm和Docker的开发环境代码加密">
-                <i class="fa fa-chevron-left"></i> 基于Pycharm和Docker的开发环境代码加密
+              <a href="/2020/07/14/基于主线模型的算法工作方式/" rel="next" title="基于主线模型的算法工作方式">
+                <i class="fa fa-chevron-left"></i> 基于主线模型的算法工作方式
               </a>
             
           </div>
@@ -392,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/24/设计模式读书笔记/" rel="prev" title="设计模式读书笔记">
-                设计模式读书笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

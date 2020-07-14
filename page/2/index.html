@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="airflow,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,14 @@
 
 
 
-<meta name="description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
-<meta name="keywords" content="airflow">
-<meta property="og:type" content="article">
-<meta property="og:title" content="模型调度那些事儿">
-<meta property="og:url" content="http://yoursite.com/2019/05/18/模型调度那些事/index.html">
+<meta name="keywords" content="Python, AI">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hub of Poppet">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hub of Poppet">
-<meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-12T09:47:49.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模型调度那些事儿">
-<meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
+<meta name="twitter:title" content="Hub of Poppet">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/18/模型调度那些事/">
+  <link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 
 
 
-  <title>模型调度那些事儿 | Hub of Poppet</title>
+  <title>Hub of Poppet</title>
   
 
 
@@ -145,7 +141,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -280,7 +277,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模型调度那些事儿</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/18/模型调度那些事/" itemprop="url">模型调度那些事儿</a></h1>
         
 
         <div class="post-meta">
@@ -352,7 +351,9 @@
       
 
       
-        <h1 id="关于模型调度的那些事儿"><a href="#关于模型调度的那些事儿" class="headerlink" title="关于模型调度的那些事儿"></a>关于模型调度的那些事儿</h1><h2 id="模型调度"><a href="#模型调度" class="headerlink" title="模型调度"></a>模型调度</h2><p>目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。</p>
+        
+          
+            <h1 id="关于模型调度的那些事儿"><a href="#关于模型调度的那些事儿" class="headerlink" title="关于模型调度的那些事儿"></a>关于模型调度的那些事儿</h1><h2 id="模型调度"><a href="#模型调度" class="headerlink" title="模型调度"></a>模型调度</h2><p>目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。</p>
 <p>模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A--&gt;B</span><br><span class="line">B--&gt;C</span><br><span class="line">C--&gt;D</span><br><span class="line">A--&gt;E</span><br><span class="line">E--&gt;F</span><br><span class="line">F--&gt;D</span><br></pre></td></tr></table></figure>
 <center>混合调度图</center><br><br><br><br>从资源占用上可以分为单机调度或多机调度。<br>画个图解释一下：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">id((client)) --ssh command--&gt; worker_A</span><br><span class="line">id((client)) --ssh command--&gt; worker_B</span><br><span class="line">id((client)) --ssh command--&gt; worker_C</span><br></pre></td></tr></table></figure><br><br><center>多机调度图</center>
@@ -412,6 +413,8 @@
 
 
 
+          
+        
       
     </div>
     
@@ -426,36 +429,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/airflow/" rel="tag"># airflow</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/18/To_B_项目实施方法论/" rel="prev" title="在览众，项目居然是这么做的！！！">
-                在览众，项目居然是这么做的！！！ <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -465,11 +446,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -477,10 +461,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -501,17 +481,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,22 +542,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于模型调度的那些事儿"><span class="nav-number">1.</span> <span class="nav-text">关于模型调度的那些事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型调度"><span class="nav-number">1.1.</span> <span class="nav-text">模型调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型备份与回滚"><span class="nav-number">1.2.</span> <span class="nav-text">模型备份与回滚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型调度备份"><span class="nav-number">1.2.1.</span> <span class="nav-text">模型调度备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型线上回滚"><span class="nav-number">1.2.2.</span> <span class="nav-text">模型线上回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型表备份"><span class="nav-number">1.2.3.</span> <span class="nav-text">模型表备份</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型测试调度线"><span class="nav-number">1.3.</span> <span class="nav-text">模型测试调度线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型测试调度线的示意图如下图所示："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">模型测试调度线的示意图如下图所示：</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -727,10 +682,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

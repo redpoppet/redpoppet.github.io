@@ -547,8 +547,24 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">建模提交模型和数仓数据就绪 --&gt; 整理所有输入与所有输出</span><br><span class="line">整理所有输入与所有输出 --&gt; 架构调整</span><br><span class="line">架构调整 --&gt; 读数写库配置模块调整 </span><br><span class="line">读数写库配置模块调整  --&gt; 启动与调度脚本</span><br><span class="line">启动与调度脚本 --&gt; 性能提升</span><br><span class="line">性能提升 --&gt; 调试模式和数据本地化及快速测试模式</span><br><span class="line">调试模式和数据本地化及快速测试模式 --&gt; 调度和联调及上线</span><br><span class="line">调度和联调及上线 --&gt; 测试调度和周期调度</span><br></pre></td></tr></table></figure>
-<h2 id="基于主线模型和运维上线的算法工作流"><a href="#基于主线模型和运维上线的算法工作流" class="headerlink" title="基于主线模型和运维上线的算法工作流"></a>基于主线模型和运维上线的算法工作流</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"></span><br><span class="line">    建模模型提交和数仓数据就绪确认 --&gt; 主线模型首次调试</span><br><span class="line">    主线模型首次调试 --&gt; 主线模型输出确认</span><br><span class="line">    主线模型输出确认 --&gt; 调度和联调及测试</span><br><span class="line">    调度和联调及测试 --&gt; 上线和备份及监测</span><br><span class="line">    上线和备份及监测 --&gt; 测试调度和周期调度</span><br></pre></td></tr></table></figure>
+            <pre class="mermaid">graph TB
+建模提交模型和数仓数据就绪 --> 整理所有输入与所有输出
+整理所有输入与所有输出 --> 架构调整
+架构调整 --> 读数写库配置模块调整 
+读数写库配置模块调整  --> 启动与调度脚本
+启动与调度脚本 --> 性能提升
+性能提升 --> 调试模式和数据本地化及快速测试模式
+调试模式和数据本地化及快速测试模式 --> 调度和联调及上线
+调度和联调及上线 --> 测试调度和周期调度</pre>
+
+<h2 id="基于主线模型和运维上线的算法工作流"><a href="#基于主线模型和运维上线的算法工作流" class="headerlink" title="基于主线模型和运维上线的算法工作流"></a>基于主线模型和运维上线的算法工作流</h2><pre class="mermaid">graph TB
+
+    建模模型提交和数仓数据就绪确认 --> 主线模型首次调试
+    主线模型首次调试 --> 主线模型输出确认
+    主线模型输出确认 --> 调度和联调及测试
+    调度和联调及测试 --> 上线和备份及监测
+    上线和备份及监测 --> 测试调度和周期调度</pre>
+
 <h3 id="组内效率监测指标："><a href="#组内效率监测指标：" class="headerlink" title="组内效率监测指标："></a>组内效率监测指标：</h3><ul>
 <li><p>[x] 模型代码提交次数（gitlab）</p>
 </li>

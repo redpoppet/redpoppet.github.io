@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
+<meta name="description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
 <meta name="keywords" content="airflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模型调度那些事儿">
 <meta property="og:url" content="http://yoursite.com/2019/05/18/模型调度那些事/index.html">
 <meta property="og:site_name" content="Hub of Poppet">
-<meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
+<meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-14T11:42:02.011Z">
+<meta property="og:updated_time" content="2020-07-14T12:38:56.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模型调度那些事儿">
-<meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： 1234567graph LRA--&amp;gt;BB--&amp;gt;CC--&amp;gt;DA--&amp;gt;EE--&amp;gt;FF--&amp;gt;D 混">
+<meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
 
 
 
@@ -354,26 +354,93 @@
       
         <h1 id="关于模型调度的那些事儿"><a href="#关于模型调度的那些事儿" class="headerlink" title="关于模型调度的那些事儿"></a>关于模型调度的那些事儿</h1><h2 id="模型调度"><a href="#模型调度" class="headerlink" title="模型调度"></a>模型调度</h2><p>目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。</p>
 <p>模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A--&gt;B</span><br><span class="line">B--&gt;C</span><br><span class="line">C--&gt;D</span><br><span class="line">A--&gt;E</span><br><span class="line">E--&gt;F</span><br><span class="line">F--&gt;D</span><br></pre></td></tr></table></figure>
-<center>混合调度图</center><br><br><br><br>从资源占用上可以分为单机调度或多机调度。<br>画个图解释一下：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">id((client)) --ssh command--&gt; worker_A</span><br><span class="line">id((client)) --ssh command--&gt; worker_B</span><br><span class="line">id((client)) --ssh command--&gt; worker_C</span><br></pre></td></tr></table></figure><br><br><center>多机调度图</center>
+<pre class="mermaid">graph LR
+A-->B
+B-->C
+C-->D
+A-->E
+E-->F
+F-->D</pre>
+<center>混合调度图</center><br>
+
+
+从资源占用上可以分为单机调度或多机调度。
+画个图解释一下：
+
+<pre class="mermaid">graph LR
+id((client)) --ssh command--> worker_A
+id((client)) --ssh command--> worker_B
+id((client)) --ssh command--> worker_C</pre>
+
+<center>多机调度图</center>
 
 
 <h2 id="模型备份与回滚"><a href="#模型备份与回滚" class="headerlink" title="模型备份与回滚"></a>模型备份与回滚</h2><h3 id="模型调度备份"><a href="#模型调度备份" class="headerlink" title="模型调度备份"></a>模型调度备份</h3><p>为了确保模型的稳定性，针对模型需要设置备选调度路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"></span><br><span class="line">id((model_ra)) --1:if success--&gt; next_task</span><br><span class="line">id((model_ra)) --2: retry--&gt; id((model_ra))</span><br><span class="line">id((model_ra)) --3:if fail--&gt; model_ra_bak</span><br><span class="line">model_ra_bak --4:if fail--&gt; email</span><br><span class="line">model_ra_bak --4:if success--&gt; next_task</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+
+id((model_ra)) --1:if success--> next_task
+id((model_ra)) --2: retry--> id((model_ra))
+id((model_ra)) --3:if fail--> model_ra_bak
+model_ra_bak --4:if fail--> email
+model_ra_bak --4:if success--> next_task</pre>
+
 <center>模型调度备份路径图</center>
 
 
 
-<p><br></p>
 <h3 id="模型线上回滚"><a href="#模型线上回滚" class="headerlink" title="模型线上回滚"></a>模型线上回滚</h3><p>当最近两个版本的模型均不能正常工作，可以联系运维，申请线上版本回退。</p>
-<p>目前，线上运维备份机制主要是通过软链接的形式进行更新与备份，可以通过更改软连接的指向地址来回滚线上版本。举个例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">subgraph bak  </span><br><span class="line">model_ra_0811 --- model_ra_0812</span><br><span class="line">model_ra_0812 --- model_ra_0813</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subgraph product</span><br><span class="line">model_ra --&gt; model_ra_0813</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<center>正常状态</center><br><br><br><br><pre class="mermaid">graph TB<br>A1-.-B1<br>A2—B2<br>A3===B3</pre><br><br><br><br><center>回滚后状态</center>
+<p>目前，线上运维备份机制主要是通过软链接的形式进行更新与备份，可以通过更改软连接的指向地址来回滚线上版本。举个例子.</p>
+<pre class="mermaid">graph TD
+subgraph bak  
+model_ra_0811 --> model_ra_0812
+model_ra_0812 --> model_ra_0813
+end
+subgraph product
+model_ra --> model_ra_0813
+end</pre>
 
 
-<h3 id="模型表备份"><a href="#模型表备份" class="headerlink" title="模型表备份"></a>模型表备份</h3><p>模型通常都是以输出结果表的形式来和数仓任务进行交互。初始交互方式如下图所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">subgraph model_task  </span><br><span class="line">model_ra --&gt; mod_sku_replenish</span><br><span class="line">model_ra --&gt; mod_sku_allot</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subgraph warehouse_task</span><br><span class="line">mod_sku_replenish --&gt; DM_task</span><br><span class="line">mod_sku_allot --&gt; DM_task</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<center>模型表备份方案1</center><br><br><br>经过一段时间的实践，发现上图中的交互方式存在以下问题：<br>1. 模型创建的表，数仓无权限读取和写入<br>1. 模型无法重试，无法重复写库，模型写入的数据不能直接覆盖，要有留存。<br>1. 数仓需要对模型输出表做些转换。<br>1. 可能会存在误删情况，因为建模测试表非常多<br>1. 无法处理多品牌的写库问题，无法同时看到两份数据<br><br><br>为了解决以上问题，总结出以下方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">subgraph model_task  </span><br><span class="line">model_ra --&gt; mod_sku_replenish_current</span><br><span class="line">model_ra --&gt; mod_sku_allot_current</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subgraph warehouse_task</span><br><span class="line">mod_sku_replenish_current --&gt; mod_sku_replenish</span><br><span class="line">mod_sku_allot_current --&gt; mod_sku_allot</span><br><span class="line">mod_sku_replenish --&gt; DM_tasks</span><br><span class="line">mod_sku_allot --&gt; DM_tasks</span><br><span class="line">end</span><br></pre></td></tr></table></figure><br><br><center>模型表备份方案2</center>
+<center>正常状态</center>
+
+
+<pre class="mermaid">graph TD
+subgraph bak
+model_ra_0811 --> model_ra_0812
+model_ra_0812 --> model_ra_0813
+end
+subgraph product
+model_ra --> model_ra_0811
+end</pre>
+
+<center>回滚后状态</center>
+
+
+<h3 id="模型表备份"><a href="#模型表备份" class="headerlink" title="模型表备份"></a>模型表备份</h3><p>模型通常都是以输出结果表的形式来和数仓任务进行交互。初始交互方式如下图所示。</p>
+<pre class="mermaid">grph LR
+subgraph model_task
+model_ra --> model_sku_replenish
+model_ra --> model_sku_allot
+end
+subgraph warehouse_task
+mod_sku_replenish --> DM_task
+mod_sku_allot --> DM_task
+end</pre>
+
+
+
+<center>模型表备份方案1</center>
+
+<p>经过一段时间的实践，发现上图中的交互方式存在以下问题：</p>
+<ol>
+<li>模型创建的表，数仓无权限读取和写入</li>
+<li>模型无法重试，无法重复写库，模型写入的数据不能直接覆盖，要有留存。</li>
+<li>数仓需要对模型输出表做些转换。</li>
+<li>可能会存在误删情况，因为建模测试表非常多</li>
+<li>无法处理多品牌的写库问题，无法同时看到两份数据</li>
+</ol>
+<p>为了解决以上问题，总结出以下方案：</p>
+<p><pre class="mermaid">graph LR<br>subgraph model_task<br>model_ra –&gt; mod_sku_replenish_current<br>model_ra –&gt; mod_sku_allot_current<br>end<br>subgraph warehouse_task<br>mod_sku_replenish_current –&gt; mod_sku_replenish<br>mod_sku_allot_current –&gt; mod_sku_allot<br>mod_sku_replenish –&gt; DM_tasks<br>mod_sku_allot –&gt; DM_tasks<br>end</pre></p>
+<center>模型表备份方案2</center>
 
 <p>另外，如果采用分区表的形式去做模型表备份，仍然存在两个问题：<br>1：模型的输出是不确定性的，经常需要删除重建<br>2：数据分析师在线上进行模型输出单据快速验证时，需要在不覆盖凌晨的自动调度生成的表的前提下进行输出补调单<br>3：模型和建模同时操作一张表，极易导致表的数据损坏和误删除。</p>
 <h2 id="模型测试调度线"><a href="#模型测试调度线" class="headerlink" title="模型测试调度线"></a>模型测试调度线</h2><p>为了对模型的效果进行快速验证，数据分析师或者项目经理需要基于最新的数据生成补调单据，进行模型结果分析。</p>
@@ -386,7 +453,7 @@
 <li>项目经理和数据分析师可以基于收到的单据和数据库中的模型结果表进行详细分析，输出模型效果评价。</li>
 <li>项目经理确定是否更新线上模型。</li>
 </ul>
-<h4 id="模型测试调度线的示意图如下图所示："><a href="#模型测试调度线的示意图如下图所示：" class="headerlink" title="模型测试调度线的示意图如下图所示："></a>模型测试调度线的示意图如下图所示：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">id(start) --&gt; model_ra</span><br><span class="line">model_ra --&gt; dm_task</span><br><span class="line">dm_task --&gt; rst_task</span><br><span class="line">rst_task --&gt; generate_documents</span><br><span class="line">generate_documents --&gt; email_documents</span><br><span class="line">email_documents --&gt; success_email</span><br></pre></td></tr></table></figure>
+<h4 id="模型测试调度线的示意图如下图所示："><a href="#模型测试调度线的示意图如下图所示：" class="headerlink" title="模型测试调度线的示意图如下图所示："></a>模型测试调度线的示意图如下图所示：</h4><p><pre class="mermaid">graph LR<br>id(start) –&gt; model_ra<br>model_ra –&gt; dm_task<br>dm_task –&gt; rst_task<br>rst_task –&gt; generate_documents<br>generate_documents –&gt; email_documents<br>email_documents –&gt; success_email</pre></p>
 <center>模型测试调度线</center>
 
 
@@ -526,7 +593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,6 +692,13 @@
 
 
 
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
 
         
 

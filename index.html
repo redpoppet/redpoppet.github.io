@@ -260,6 +260,235 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/16/工程能力培训系列一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="redpoppet">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hub of Poppet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/16/工程能力培训系列一/" itemprop="url">工程能力培训系列一</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-16T10:41:32+08:00">
+                2020-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technical-Innovation/" itemprop="url" rel="index">
+                    <span itemprop="name">Technical Innovation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="工程能力培训系列一"><a href="#工程能力培训系列一" class="headerlink" title="工程能力培训系列一"></a>工程能力培训系列一</h1><h1 id="总体安排"><a href="#总体安排" class="headerlink" title="总体安排"></a>总体安排</h1><p> 为了提升通识能力，基于公司业务，按照当前情况预计安排三次工程开发通识培训。</p>
+<ul>
+<li><p>第一次：工作答疑系列。主要负责当前工作中工作岗位内容认知，模型流转过程，开发平台体系相关的疑问解答</p>
+</li>
+<li><p>第二次：基础培训系列。主要讲解计算机主要课程的相关概要</p>
+</li>
+<li><p>第三次：视野扩展系列。主要讲解一些主流的开发体系和通用做法。</p>
+</li>
+</ul>
+<h1 id="培训大纲："><a href="#培训大纲：" class="headerlink" title="培训大纲："></a>培训大纲：</h1><p>经过调研，第一次的培训内容答疑问题安排如下：</p>
+<ol>
+<li><p>我们提交模型之后，到客户看到之前，中间发生了啥？ </p>
+</li>
+<li><p>什么叫服务？ </p>
+</li>
+<li><p>什么叫微服务？</p>
+</li>
+<li><p>介绍下产品架构，当初为什么做了这样的架构？架构里面的组件为啥选择这些？</p>
+</li>
+<li><p>开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的？ </p>
+</li>
+<li><p>面向服务的架构，Docker，DevOps这些专业名词都是啥意思？干啥的？</p>
+</li>
+</ol>
+<h1 id="主要内容："><a href="#主要内容：" class="headerlink" title="主要内容："></a>主要内容：</h1><h2 id="1-我们提交模型之后，到客户看到之前，中间发生了啥？"><a href="#1-我们提交模型之后，到客户看到之前，中间发生了啥？" class="headerlink" title="1. 我们提交模型之后，到客户看到之前，中间发生了啥？"></a>1. 我们提交模型之后，到客户看到之前，中间发生了啥？</h2><ol>
+<li>代码合并，解决冲突。</li>
+<li>代码加密，合并代码到加密分支。</li>
+<li>代码测试，多机部署测试（可选）</li>
+<li>性能有无问题，有问题另外处理</li>
+<li>测试通过，代码提测，发送合并请求给技术leader。测试不通过，反馈给算法工程师。</li>
+<li>技术leader接收合并请求，下载各端代码，部署到开发环境，冒烟测试联调无误后，发送各端代码合并请求，发送提测邮件，</li>
+<li>测试接收合并请求，下载各端代码，部署到测试环境，然后开始功能测试，数仓测试，模型测试，联调测试。发送测试结论和测试报告。</li>
+<li>测试通过后，项目经理，业务分析师确认效果无误（可选）。</li>
+<li>测试打包所有的代码到svn，然后告知项目经理测试通过。</li>
+<li>项目经理发送上线申请邮件，申请上线。</li>
+<li>运维接受邮件，去svn下载代码包，执行部署脚本，分别部署各端代码(jenkins), 执行环境安装脚本，执行数仓变更脚本，回复上线邮件</li>
+<li>项目经理进行回归测试，确认整体联调成功，模型输出结果无误，然后邮件回复此次上线成功。</li>
+</ol>
+<ul>
+<li>天天说的服务是什么？<ul>
+<li style="list-style: none"><input type="checkbox"> 有请求；</li>
+<li style="list-style: none"><input type="checkbox"> 有响应;</li>
+<li style="list-style: none"><input type="checkbox"> 常驻内存等待;</li>
+<li style="list-style: none"><input type="checkbox"> 不对外暴露内部处理逻辑。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-微服务是什么"><a href="#2-微服务是什么" class="headerlink" title="2. 微服务是什么"></a>2. 微服务是什么</h2><p>微服务是一种系统架构。一般系统分为以下几个层级：</p>
+<center><br><br><pre class="mermaid">graph TD<br>id(用户) –&gt; web服务器<br>web服务器 –&gt; 数据库</pre><br>简单系统</center>
+
+
+<center><br><br><pre class="mermaid">graph TD<br>id(用户) –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 应用服务器1<br>Nginx负载均衡 –&gt; 应用服务器2<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 应用服务器N<br>subgraph 应用服务器集群<br>应用服务器1<br>应用服务器2<br>…<br>应用服务器N<br>end<br>应用服务器1 –&gt; 数据库<br>应用服务器2 –&gt; 数据库<br> …  –&gt; 数据库<br>应用服务器N  –&gt; 数据库</pre><br>复杂阶段</center>
+
+<center><br><br><pre class="mermaid">graph TD<br>用户 –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 商品服务<br>Nginx负载均衡 –&gt;  订单服务<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 用户服务<br>subgraph 应用服务器集群<br>商品服务<br>订单服务<br>…<br>用户服务<br>end<br><br>商品服务 –&gt; 数据库<br>订单服务 –&gt; 数据库<br> …  –&gt; 数据库<br>用户服务  –&gt; 数据库</pre><br><br>成熟阶段</center>
+
+
+
+
+
+
+<center><br><br><pre class="mermaid">graph TD<br>用户 –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 商品服务<br>商品服务 –&gt; 商品数据库<br>Nginx负载均衡 –&gt;  订单服务<br>订单服务 –&gt; 订单数据库<br>Nginx负载均衡 –&gt; …<br>…  –&gt; …数据库<br>Nginx负载均衡 –&gt; 用户服务<br>用户服务  –&gt; 用户数据库<br>subgraph 服务集群<br>商品服务<br>订单服务<br>…<br>用户服务<br>商品数据库<br>订单数据库<br>用户数据库<br>…数据库<br>subgraph 商品域<br>商品服务<br>商品数据库<br>end<br>subgraph 订单域<br>订单服务<br>订单数据库<br>end<br>subgraph 用户域<br>用户服务<br>用户数据库<br>end<br>subgraph XX域<br>…<br>…数据库<br>end<br><br><br>end</pre><br><br>微服务阶段</center>
+
+
+<p>微服务有三个重点特性:</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> ：small</li>
+<li style="list-style: none"><input type="checkbox" checked> ：lightweight</li>
+<li style="list-style: none"><input type="checkbox" checked> ：automated</li>
+</ul>
+<p>微服务并没有从架构上降低系统的复杂度，相反还增加了系统的整体复杂度。不过通过拆分降低了系统的模块复杂度。</p>
+<h2 id="3-SaaS产品架构是什么样子的？"><a href="#3-SaaS产品架构是什么样子的？" class="headerlink" title="3. SaaS产品架构是什么样子的？?"></a>3. SaaS产品架构是什么样子的？?</h2><center><br><br><pre class="mermaid">graph LR<br>user –&gt; nginx<br>nginx –&gt; 租户中心<br>租户中心 –&gt; 业务中心<br>租户中心 –&gt; 配置中心<br>业务中心 –&gt; 前端中心<br>业务中心 –&gt; 模块中心<br>业务中心 –&gt; 应用中心<br><br>业务中心 –&gt; 调度中心<br><br>业务中心 –&gt; 模型中心<br>业务中心 –&gt; GIS中心<br>业务中心 –&gt; 任务中心<br><br>前端中心 –&gt; 应用实例<br>模块中心 –&gt; 应用实例<br>应用中心 –&gt; 应用实例<br>应用中心 –&gt; 数仓实例<br>调度中心 –&gt; 调度实例<br>模型中心 –&gt; 模型实例<br>subgraph 平台组件<br>租户中心<br>业务中心<br>前端中心<br>应用中心<br>模型中心<br>模块中心<br>任务中心<br>调度中心<br>配置中心<br>GIS中心<br>subgraph 平台服务<br>任务中心<br>GIS中心<br>end<br>end<br>subgraph 租户实例<br>应用实例<br>调度实例<br>模型实例<br>数仓实例<br>end<br><br>应用实例 –&gt; Postgresql<br>调度实例 –&gt; Postgresql<br>模型实例 –&gt; Postgresql<br>模型实例 –&gt; Hive<br>模型实例 –&gt; Redis<br>应用实例 –&gt; Redis<br>数仓实例 –&gt; Hive<br>数仓实例 –&gt; Postgresql<br>subgraph 数据平台<br>Hive<br>Postgresql<br>Redis<br>end</pre><br><br>产品架构图</center>
+
+
+<h2 id="4-开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的"><a href="#4-开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的" class="headerlink" title="4. 开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的?"></a>4. 开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的?</h2><ol>
+<li>本地部署方案：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">DevConfig</span><span class="params">(MyBaseConfig)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(DevConfig, self).__init__()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestConfig</span><span class="params">(MyBaseConfig)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(TestConfig, self).__init__()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductConfig</span><span class="params">(MyBaseConfig)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(ProductConfig, self).__init__()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config_factory = &#123;</span><br><span class="line">    <span class="string">"development"</span>: DevConfig(),</span><br><span class="line">    <span class="string">"test"</span>: TestConfig(),</span><br><span class="line">    <span class="string">"product"</span>: ProductConfig()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">ENVIRONMENT = os.getenv(<span class="string">'ENVIRONMENT'</span>)</span><br><span class="line">config = config_factory[ENVIRONMENT]</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> SaaS方案：</span><br><span class="line"></span><br><span class="line">向配置中心请求配置信息</span><br><span class="line">```python</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_config</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    调用配置中心的接口获取模型中心的配置信息</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从配置文件读取配置中心的信息,不同环境生成的配置不一样。</span></span><br><span class="line">    host = os.getenv(<span class="string">"CONFIG_CENTER_HOST"</span>)</span><br><span class="line">    port = os.getenv(<span class="string">"CONFIG_CENTER_PORT"</span>)</span><br><span class="line">    url = <span class="string">"http://url/to/config_center/&#123;host&#125;/&#123;port&#125;"</span></span><br><span class="line">    resp = requests.get(url=url)</span><br><span class="line">    resp_json = resp.json()</span><br><span class="line">    <span class="keyword">return</span> resp_json[<span class="string">"data"</span>]</span><br></pre></td></tr></table></figure>
+<p>通过实例化配置信息类生成一个配置信息实例。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Class Config():</span><br><span class="line">    ENVIRONMENT = os.getenv(<span class="string">'ENVIRONMENT'</span>)</span><br><span class="line">    <span class="keyword">if</span> ENVIRONMENT == <span class="string">'dev'</span>:</span><br><span class="line">        config = get_dev_config()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> ENVIRONMENT == <span class="string">'test'</span>:</span><br><span class="line">        config = get_test_config()  </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      config = get_prod_config()</span><br><span class="line">        </span><br><span class="line">config = Config()</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-Docker，DevOps，k8s这些专业名词都是啥意思？"><a href="#5-Docker，DevOps，k8s这些专业名词都是啥意思？" class="headerlink" title="5. Docker，DevOps，k8s这些专业名词都是啥意思？"></a>5. Docker，DevOps，k8s这些专业名词都是啥意思？</h2><ul>
+<li><p>[ ]   Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+</li>
+<li><p>[ ] DevOps是一组过程、方法与系统的统称，用于促进开发（应用程序/软件工程）、技术运营和质量保障（QA）部门之间的沟通、协作与整合。透过自动化“软件交付”和“架构变更”的流程，来使得构建、测试、发布软件能够更加地快捷、频繁和可靠。</p>
+</li>
+<li><p>[ ] k8s 它是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。</p>
+</li>
+<li><p>[ ] CDH Cloudera 提供一个可伸缩，稳定，综合的企业级数据管理平台，用于管理快速增长的数据，使用户可以快速部署和管理Hadoop 及相关大数据处理框架，操作、分析企业级数据，并保证数据的安全性。</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/基于fork和pull-request的模型代码管理方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1628,290 +1857,6 @@ spark常规问题集: 2019-08-05,8w
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/模型调度那些事/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="redpoppet">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hub of Poppet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/18/模型调度那些事/" itemprop="url">模型调度那些事儿</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T16:31:42+08:00">
-                2019-05-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technical-Innovation/" itemprop="url" rel="index">
-                    <span itemprop="name">Technical Innovation</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="关于模型调度的那些事儿"><a href="#关于模型调度的那些事儿" class="headerlink" title="关于模型调度的那些事儿"></a>关于模型调度的那些事儿</h1><h2 id="模型调度"><a href="#模型调度" class="headerlink" title="模型调度"></a>模型调度</h2><p>目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。</p>
-<p>模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下：</p>
-<pre class="mermaid">graph LR
-A-->B
-B-->C
-C-->D
-A-->E
-E-->F
-F-->D</pre>
-<center>混合调度图</center><br>
-
-
-从资源占用上可以分为单机调度或多机调度。
-画个图解释一下：
-
-<pre class="mermaid">graph LR
-id((client)) --ssh command--> worker_A
-id((client)) --ssh command--> worker_B
-id((client)) --ssh command--> worker_C</pre>
-
-<center>多机调度图</center>
-
-
-<h2 id="模型备份与回滚"><a href="#模型备份与回滚" class="headerlink" title="模型备份与回滚"></a>模型备份与回滚</h2><h3 id="模型调度备份"><a href="#模型调度备份" class="headerlink" title="模型调度备份"></a>模型调度备份</h3><p>为了确保模型的稳定性，针对模型需要设置备选调度路径。</p>
-<pre class="mermaid">graph LR
-
-id((model_ra)) --1:if success--> next_task
-id((model_ra)) --2: retry--> id((model_ra))
-id((model_ra)) --3:if fail--> model_ra_bak
-model_ra_bak --4:if fail--> email
-model_ra_bak --4:if success--> next_task</pre>
-
-<center>模型调度备份路径图</center>
-
-
-
-<h3 id="模型线上回滚"><a href="#模型线上回滚" class="headerlink" title="模型线上回滚"></a>模型线上回滚</h3><p>当最近两个版本的模型均不能正常工作，可以联系运维，申请线上版本回退。</p>
-<p>目前，线上运维备份机制主要是通过软链接的形式进行更新与备份，可以通过更改软连接的指向地址来回滚线上版本。举个例子.</p>
-<pre class="mermaid">graph TD
-subgraph bak  
-model_ra_0811 --> model_ra_0812
-model_ra_0812 --> model_ra_0813
-end
-subgraph product
-model_ra --> model_ra_0813
-end</pre>
-
-
-
-<center>正常状态</center>
-
-
-<pre class="mermaid">graph TD
-subgraph bak
-model_ra_0811 --> model_ra_0812
-model_ra_0812 --> model_ra_0813
-end
-subgraph product
-model_ra --> model_ra_0811
-end</pre>
-
-
-<center>回滚后状态</center>
-
-
-<h3 id="模型表备份"><a href="#模型表备份" class="headerlink" title="模型表备份"></a>模型表备份</h3><p>模型通常都是以输出结果表的形式来和数仓任务进行交互。初始交互方式如下图所示。</p>
-<pre class="mermaid">graph LR
-subgraph model_task
-model_ra --> model_sku_replenish
-model_ra --> model_sku_allot
-end
-subgraph warehouse_task
-mod_sku_replenish --> DM_task
-mod_sku_allot --> DM_task
-end</pre>
-
-
-
-<center>模型表备份方案1</center>
-
-<p>经过一段时间的实践，发现上图中的交互方式存在以下问题：</p>
-<ol>
-<li>模型创建的表，数仓无权限读取和写入</li>
-<li>模型无法重试，无法重复写库，模型写入的数据不能直接覆盖，要有留存。</li>
-<li>数仓需要对模型输出表做些转换。</li>
-<li>可能会存在误删情况，因为建模测试表非常多</li>
-<li>无法处理多品牌的写库问题，无法同时看到两份数据</li>
-</ol>
-<p>为了解决以上问题，总结出以下方案：</p>
-<pre class="mermaid">graph LR
-subgraph model_task  
-model_ra --> mod_sku_replenish_current
-model_ra --> mod_sku_allot_current
-end
-subgraph warehouse_task
-mod_sku_replenish_current --> mod_sku_replenish
-mod_sku_allot_current --> mod_sku_allot
-mod_sku_replenish --> DM_tasks
-mod_sku_allot --> DM_tasks
-end</pre>
-
-<center>模型表备份方案2</center>
-
-<p>另外，如果采用分区表的形式去做模型表备份，仍然存在两个问题：<br>1：模型的输出是不确定性的，经常需要删除重建<br>2：数据分析师在线上进行模型输出单据快速验证时，需要在不覆盖凌晨的自动调度生成的表的前提下进行输出补调单<br>3：模型和建模同时操作一张表，极易导致表的数据损坏和误删除。</p>
-<h2 id="模型测试调度线"><a href="#模型测试调度线" class="headerlink" title="模型测试调度线"></a>模型测试调度线</h2><p>为了对模型的效果进行快速验证，数据分析师或者项目经理需要基于最新的数据生成补调单据，进行模型结果分析。</p>
-<p>为了不影响生产环境中的调度，算法组总结出了模型测试调度线机制，专门用来进行模型的测试验证。这里提一下，模型测试调度线，并不是只能测试一个模型，可以包含多个模型。</p>
-<p>测试调度线的使用流程如下：</p>
-<ul>
-<li>建模本地测试通过，项目经理和建模初步确认结果，例如总调拨量，总捕获量等。</li>
-<li>建模提交代码给算法，由算法测试通过后，上传至模型测试调度线的模型代码目录，并修改相应参数(如写测试表等)，交由数据分析师或者项目经理进行调度。</li>
-<li>模型测试通过后，即可执行整个测试调度脚本，当执行完后续的数仓处理存储过程和导出存储过程，即可通过邮件将导出的单据直接发送到数据分析师或者项目经理邮箱。</li>
-<li>项目经理和数据分析师可以基于收到的单据和数据库中的模型结果表进行详细分析，输出模型效果评价。</li>
-<li>项目经理确定是否更新线上模型。</li>
-</ul>
-<h4 id="模型测试调度线的示意图如下图所示："><a href="#模型测试调度线的示意图如下图所示：" class="headerlink" title="模型测试调度线的示意图如下图所示："></a>模型测试调度线的示意图如下图所示：</h4><pre class="mermaid">graph LR
-id(start) --> model_ra
-model_ra --> dm_task
-dm_task --> rst_task
-rst_task --> generate_documents
-generate_documents --> email_documents
-email_documents --> success_email</pre>
-
-<center>模型测试调度线</center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/To_B_项目实施方法论/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2159,6 +2104,10 @@ Poppet, 负责对服装类项目进行实施细节指导。
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2202,7 +2151,7 @@ Poppet, 负责对服装类项目进行实施细节指导。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2224,7 +2173,7 @@ Poppet, 负责对服装类项目进行实施细节指导。
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

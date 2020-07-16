@@ -401,6 +401,7 @@ model_ra --> model_ra_0813
 end</pre>
 
 
+
 <center>正常状态</center>
 
 
@@ -413,11 +414,12 @@ subgraph product
 model_ra --> model_ra_0811
 end</pre>
 
+
 <center>回滚后状态</center>
 
 
 <h3 id="模型表备份"><a href="#模型表备份" class="headerlink" title="模型表备份"></a>模型表备份</h3><p>模型通常都是以输出结果表的形式来和数仓任务进行交互。初始交互方式如下图所示。</p>
-<pre class="mermaid">grph LR
+<pre class="mermaid">graph LR
 subgraph model_task
 model_ra --> model_sku_replenish
 model_ra --> model_sku_allot
@@ -440,7 +442,18 @@ end</pre>
 <li>无法处理多品牌的写库问题，无法同时看到两份数据</li>
 </ol>
 <p>为了解决以上问题，总结出以下方案：</p>
-<p><pre class="mermaid">graph LR<br>subgraph model_task<br>model_ra –&gt; mod_sku_replenish_current<br>model_ra –&gt; mod_sku_allot_current<br>end<br>subgraph warehouse_task<br>mod_sku_replenish_current –&gt; mod_sku_replenish<br>mod_sku_allot_current –&gt; mod_sku_allot<br>mod_sku_replenish –&gt; DM_tasks<br>mod_sku_allot –&gt; DM_tasks<br>end</pre></p>
+<pre class="mermaid">graph LR
+subgraph model_task  
+model_ra --> mod_sku_replenish_current
+model_ra --> mod_sku_allot_current
+end
+subgraph warehouse_task
+mod_sku_replenish_current --> mod_sku_replenish
+mod_sku_allot_current --> mod_sku_allot
+mod_sku_replenish --> DM_tasks
+mod_sku_allot --> DM_tasks
+end</pre>
+
 <center>模型表备份方案2</center>
 
 <p>另外，如果采用分区表的形式去做模型表备份，仍然存在两个问题：<br>1：模型的输出是不确定性的，经常需要删除重建<br>2：数据分析师在线上进行模型输出单据快速验证时，需要在不覆盖凌晨的自动调度生成的表的前提下进行输出补调单<br>3：模型和建模同时操作一张表，极易导致表的数据损坏和误删除。</p>
@@ -454,11 +467,15 @@ end</pre>
 <li>项目经理和数据分析师可以基于收到的单据和数据库中的模型结果表进行详细分析，输出模型效果评价。</li>
 <li>项目经理确定是否更新线上模型。</li>
 </ul>
-<h4 id="模型测试调度线的示意图如下图所示："><a href="#模型测试调度线的示意图如下图所示：" class="headerlink" title="模型测试调度线的示意图如下图所示："></a>模型测试调度线的示意图如下图所示：</h4><p><pre class="mermaid">graph LR<br>id(start) –&gt; model_ra<br>model_ra –&gt; dm_task<br>dm_task –&gt; rst_task<br>rst_task –&gt; generate_documents<br>generate_documents –&gt; email_documents<br>email_documents –&gt; success_email</pre></p>
+<h4 id="模型测试调度线的示意图如下图所示："><a href="#模型测试调度线的示意图如下图所示：" class="headerlink" title="模型测试调度线的示意图如下图所示："></a>模型测试调度线的示意图如下图所示：</h4><pre class="mermaid">graph LR
+id(start) --> model_ra
+model_ra --> dm_task
+dm_task --> rst_task
+rst_task --> generate_documents
+generate_documents --> email_documents
+email_documents --> success_email</pre>
+
 <center>模型测试调度线</center>
-
-
-
 
 
 
@@ -586,7 +603,7 @@ end</pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

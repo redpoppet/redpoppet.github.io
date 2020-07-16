@@ -651,8 +651,7 @@
 
       
         
-          
-            <pre class="mermaid">graph TB
+          <pre class="mermaid">graph TB
 建模提交模型和数仓数据就绪 --> 整理所有输入与所有输出
 整理所有输入与所有输出 --> 架构调整
 架构调整 --> 读数写库配置模块调整 
@@ -661,81 +660,13 @@
 性能提升 --> 调试模式和数据本地化及快速测试模式
 调试模式和数据本地化及快速测试模式 --> 调度和联调及上线
 调度和联调及上线 --> 测试调度和周期调度</pre>
-
-<h2 id="基于主线模型和运维上线的算法工作流"><a href="#基于主线模型和运维上线的算法工作流" class="headerlink" title="基于主线模型和运维上线的算法工作流"></a>基于主线模型和运维上线的算法工作流</h2><pre class="mermaid">graph TB
-
-    建模模型提交和数仓数据就绪确认 --> 主线模型首次调试
-    主线模型首次调试 --> 主线模型输出确认
-    主线模型输出确认 --> 调度和联调及测试
-    调度和联调及测试 --> 上线和备份及监测
-    上线和备份及监测 --> 测试调度和周期调度</pre>
-
-<h3 id="组内效率监测指标："><a href="#组内效率监测指标：" class="headerlink" title="组内效率监测指标："></a>组内效率监测指标：</h3><ul>
-<li><p><input checked disabled type="checkbox">  模型代码提交次数（gitlab）</p>
-</li>
-<li><p><input checked disabled type="checkbox">  数据校验通过次数 （手动，次数越多，效率越高）</p>
-</li>
-<li><p><input checked disabled type="checkbox">  主线模型首次调试通过时间（从开始干活到线上调度通过时间）</p>
-</li>
-<li><p><input checked disabled type="checkbox">  模型自动化程度（是否所有步骤都已经脚本化，自动化脚本个数）</p>
-</li>
-<li><p><input checked disabled type="checkbox">  模型一次迭代代码修改量（gitlab）</p>
-</li>
-</ul>
-<h3 id="效率提升计划："><a href="#效率提升计划：" class="headerlink" title="效率提升计划："></a>效率提升计划：</h3><pre class="mermaid">gantt
-dateFormat 2019-07-14
-title 效率提升计划
-section 流程改造
-工作流调整: 2019-07-22, 2w
-section 架构调整
-多模式支持: 2019-07-29, 2w
-配置整理: 2019-08-05, 2w
-section 便捷运行
-调度与启动: 2019-08-12, 2w
-
-section 脚本化
-更新测试脚本:2019-08-17,2w
-上线发布脚本:2019-08-22,2w
-
-section 数据校验
-模型前置数据校验: 2019-08-29,2w
-
-section 性能提升
-性能提升方案总结: 2019-09-02,2w
-
-section 总结与支持
-spark常规问题集: 2019-08-05,8w
-建模代码规范培训和code review: 2019-07-26,8w</pre>
-
-
-<h3 id="具体提升事项"><a href="#具体提升事项" class="headerlink" title="具体提升事项"></a>具体提升事项</h3><ul>
-<li><p><input disabled type="checkbox">  确认每个项目中的算法工作流 【第1周】</p>
-</li>
-<li><p><input disabled type="checkbox">  主线模型支持测试模式和数据本地化模式 [ 第2周]</p>
-</li>
-<li><p><input disabled type="checkbox">  主线模型配置设定与提取 【 第2周】</p>
-</li>
-<li><p><input disabled type="checkbox">  模型统一调度命令  【第3周】</p>
-</li>
-<li><p><input disabled type="checkbox">  整理模型统一启动脚本 【第3周】</p>
-</li>
-<li><p><input disabled type="checkbox">  编写模型测试环境部署脚本 【第4周】</p>
-</li>
-<li><p><input disabled type="checkbox">  编写测试环境代码更新脚本 【第4周】</p>
-</li>
-<li><p><input disabled type="checkbox">  编写生产环境代码发布脚本 【第4周】</p>
-</li>
-<li><p><input disabled type="checkbox">  模型前置数据校验 【第5~6周】</p>
-</li>
-<li><p><input disabled type="checkbox">  spark常规问题集  【第1~8周】</p>
-</li>
-<li><p><input disabled type="checkbox">  建模代码规范培训和code review 【第1~8周】</p>
-</li>
-<li><p><input disabled type="checkbox">  性能提升方案总结 【第7~8周】</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/14/基于主线模型的算法工作方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

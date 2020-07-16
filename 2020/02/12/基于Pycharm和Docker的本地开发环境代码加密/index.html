@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://note.youdao.com/yws/res/13547/C5E65C65089B4D71A28823A1B06CF94B">
 <meta property="og:image" content="http://note.youdao.com/yws/res/13556/0A7BDDB9F0454C29A4834CFA0D31F93C">
 <meta property="og:image" content="http://note.youdao.com/yws/res/13568/DA28E45E51ED434E8F52B45F9EB64885">
-<meta property="og:updated_time" content="2020-02-12T09:50:24.878Z">
+<meta property="og:updated_time" content="2020-07-16T08:37:47.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Pycharm和Docker的开发环境代码加密">
 <meta name="twitter:description" content="如何使用Pycharm和Docker实现开发环境自定义引言在工作中经常存在这样一种状态，当同时开发多个项目的时候，如果每个项目的环境配置是不一样的，则当需要进行项目切换开发时，是比较痛苦的。 虽说存在各种环境隔离工具，但是仅仅是服务于一种语言的特定开发。项目开发中使用的环境还是蛮多的，有时候还是需要像独立机器那样的环境来进行项目隔离开发。为此以前采用虚拟机方式进行环境隔离。不过使用laptop进行">
@@ -362,6 +362,7 @@
       
         <h1 id="如何使用Pycharm和Docker实现开发环境自定义"><a href="#如何使用Pycharm和Docker实现开发环境自定义" class="headerlink" title="如何使用Pycharm和Docker实现开发环境自定义"></a>如何使用Pycharm和Docker实现开发环境自定义</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在工作中经常存在这样一种状态，当同时开发多个项目的时候，如果每个项目的环境配置是不一样的，则当需要进行项目切换开发时，是比较痛苦的。</p>
 <p>虽说存在各种环境隔离工具，但是仅仅是服务于一种语言的特定开发。项目开发中使用的环境还是蛮多的，有时候还是需要像独立机器那样的环境来进行项目隔离开发。为此以前采用虚拟机方式进行环境隔离。不过使用laptop进行开发，虚拟机解决方案还是不够轻量。</p>
+<a id="more"></a>
 <h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>其实业界已经成熟的方案来进行环境隔离了，那就是Docker方式。但是目前体验到的Docker最强大的地方还是环境隔离。在开发效率上的提升其实并没有什么直接的促进作用。</p>
 <p>为了提高开发效率，还是要进行IDE的扩展和强化。因此，从这两点上来说，如果能够在Pycharm上熟练使用Docker的相关功能，就能够实现轻量级的环境和优雅高效的开发方式。</p>
 <h2 id="痛点定义"><a href="#痛点定义" class="headerlink" title="痛点定义"></a>痛点定义</h2><p>在日常的工作中，由于开发人员多采用windows和mac系统进行开发，而服务侧则通常使用linux系统进行部署。在通用性满足前提的情况下，问题不大。但当有一定严苛的开发需求出现时，就存在比较大的困扰了。<br>现在的一个痛点是，需要在本地开发环境对代码进行加密，然后提交到服务器上进行部署，实现源代码的加密部署。由于加密过程中需要打包编译器的相关组件，所以加密后的代码要在相同的系统类型和编译器版本上才能运行。因此在使用Docker隔离的基础上，还需要使用完全一致的开发基础组件。</p>

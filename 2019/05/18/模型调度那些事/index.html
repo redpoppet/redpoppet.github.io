@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
+<meta name="description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。">
 <meta name="keywords" content="airflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模型调度那些事儿">
 <meta property="og:url" content="http://yoursite.com/2019/05/18/模型调度那些事/index.html">
 <meta property="og:site_name" content="Hub of Poppet">
-<meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
+<meta property="og:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T03:40:07.474Z">
+<meta property="og:updated_time" content="2020-07-16T08:37:58.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模型调度那些事儿">
-<meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。 模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下： graph LR A--&amp;gt;B B--&amp;gt;C C--&amp;gt;D A--&amp;gt;E E--&amp;gt;F F--&amp;gt;D 混合调度图   从资源占用上可以分为单机">
+<meta name="twitter:description" content="关于模型调度的那些事儿模型调度目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。">
 
 
 
@@ -353,6 +353,8 @@
 
       
         <h1 id="关于模型调度的那些事儿"><a href="#关于模型调度的那些事儿" class="headerlink" title="关于模型调度的那些事儿"></a>关于模型调度的那些事儿</h1><h2 id="模型调度"><a href="#模型调度" class="headerlink" title="模型调度"></a>模型调度</h2><p>目前公司采用airflow作为调度平台，调度中目前分为数仓任务调度、模型任务调度和后端任务调度。为了提高大家对任务调度的理解，这里对模型的调度工作做下详细说明。</p>
+<a id="more"></a>
+
 <p>模型整体的调度从顺序上可以分为串行调度或并行调度或混合调度。画个图解释一下：</p>
 <pre class="mermaid">graph LR
 A-->B

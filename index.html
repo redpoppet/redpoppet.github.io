@@ -353,7 +353,7 @@
       
         
           
-            <h1 id="工程能力培训系列一"><a href="#工程能力培训系列一" class="headerlink" title="工程能力培训系列一"></a>工程能力培训系列一</h1><h1 id="总体安排"><a href="#总体安排" class="headerlink" title="总体安排"></a>总体安排</h1><p> 为了提升通识能力，基于公司业务，按照当前情况预计安排三次工程开发通识培训。</p>
+            <h1 id="总体安排"><a href="#总体安排" class="headerlink" title="总体安排"></a>总体安排</h1><p> 为了提升通识能力，基于公司业务，按照当前情况预计安排三次工程开发通识培训。</p>
 <ul>
 <li><p>第一次：工作答疑系列。主要负责当前工作中工作岗位内容认知，模型流转过程，开发平台体系相关的疑问解答</p>
 </li>
@@ -401,18 +401,54 @@
 </li>
 </ul>
 <h2 id="2-微服务是什么"><a href="#2-微服务是什么" class="headerlink" title="2. 微服务是什么"></a>2. 微服务是什么</h2><p>微服务是一种系统架构。一般系统分为以下几个层级：</p>
-<center><br><br><pre class="mermaid">graph TD<br>id(用户) –&gt; web服务器<br>web服务器 –&gt; 数据库</pre><br>简单系统</center>
+<!-- <center> -->
+<pre class="mermaid">graph TD
+id(用户) --> web服务器
+web服务器 --> 数据库</pre>
+<!-- 简单系统</center> -->
 
 
-<center><br><br><pre class="mermaid">graph TD<br>id(用户) –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 应用服务器1<br>Nginx负载均衡 –&gt; 应用服务器2<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 应用服务器N<br>subgraph 应用服务器集群<br>应用服务器1<br>应用服务器2<br>…<br>应用服务器N<br>end<br>应用服务器1 –&gt; 数据库<br>应用服务器2 –&gt; 数据库<br> …  –&gt; 数据库<br>应用服务器N  –&gt; 数据库</pre><br>复杂阶段</center>
+<center>
 
-<center><br><br><pre class="mermaid">graph TD<br>用户 –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 商品服务<br>Nginx负载均衡 –&gt;  订单服务<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 用户服务<br>subgraph 应用服务器集群<br>商品服务<br>订单服务<br>…<br>用户服务<br>end<br><br>商品服务 –&gt; 数据库<br>订单服务 –&gt; 数据库<br> …  –&gt; 数据库<br>用户服务  –&gt; 数据库</pre><br><br>成熟阶段</center>
+<pre class="mermaid">graph TD
+id(用户) --> Nginx负载均衡
+Nginx负载均衡 --> 应用服务器1
+Nginx负载均衡 --> 应用服务器2
+Nginx负载均衡 --> ...
+Nginx负载均衡 --> 应用服务器N
+subgraph 应用服务器集群
+应用服务器1
+应用服务器2
+...
+应用服务器N 
+end
+应用服务器1 --> 数据库
+应用服务器2 --> 数据库
+ ...  --> 数据库
+应用服务器N  --> 数据库</pre>
+复杂阶段</center>
 
+<center>
 
+<pre class="mermaid">graph TD
+用户 --> Nginx负载均衡
+Nginx负载均衡 --> 商品服务
+Nginx负载均衡 -->  订单服务
+Nginx负载均衡 --> ...
+Nginx负载均衡 --> 用户服务
+subgraph 应用服务器集群
+商品服务
+订单服务
+...
+用户服务
+end
 
+商品服务 --> 数据库
+订单服务 --> 数据库
+ ...  --> 数据库
+用户服务  --> 数据库</pre>
 
-
-
+<p>成熟阶段</p></center><p></p>
 <center><br><br><pre class="mermaid">graph TD<br>用户 –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 商品服务<br>商品服务 –&gt; 商品数据库<br>Nginx负载均衡 –&gt;  订单服务<br>订单服务 –&gt; 订单数据库<br>Nginx负载均衡 –&gt; …<br>…  –&gt; …数据库<br>Nginx负载均衡 –&gt; 用户服务<br>用户服务  –&gt; 用户数据库<br>subgraph 服务集群<br>商品服务<br>订单服务<br>…<br>用户服务<br>商品数据库<br>订单数据库<br>用户数据库<br>…数据库<br>subgraph 商品域<br>商品服务<br>商品数据库<br>end<br>subgraph 订单域<br>订单服务<br>订单数据库<br>end<br>subgraph 用户域<br>用户服务<br>用户数据库<br>end<br>subgraph XX域<br>…<br>…数据库<br>end<br><br><br>end</pre><br><br>微服务阶段</center>
 
 
@@ -423,7 +459,7 @@
 <li style="list-style: none"><input type="checkbox" checked> ：automated</li>
 </ul>
 <p>微服务并没有从架构上降低系统的复杂度，相反还增加了系统的整体复杂度。不过通过拆分降低了系统的模块复杂度。</p>
-<h2 id="3-SaaS产品架构是什么样子的？"><a href="#3-SaaS产品架构是什么样子的？" class="headerlink" title="3. SaaS产品架构是什么样子的？?"></a>3. SaaS产品架构是什么样子的？?</h2><center><br><br><pre class="mermaid">graph LR<br>user –&gt; nginx<br>nginx –&gt; 租户中心<br>租户中心 –&gt; 业务中心<br>租户中心 –&gt; 配置中心<br>业务中心 –&gt; 前端中心<br>业务中心 –&gt; 模块中心<br>业务中心 –&gt; 应用中心<br><br>业务中心 –&gt; 调度中心<br><br>业务中心 –&gt; 模型中心<br>业务中心 –&gt; GIS中心<br>业务中心 –&gt; 任务中心<br><br>前端中心 –&gt; 应用实例<br>模块中心 –&gt; 应用实例<br>应用中心 –&gt; 应用实例<br>应用中心 –&gt; 数仓实例<br>调度中心 –&gt; 调度实例<br>模型中心 –&gt; 模型实例<br>subgraph 平台组件<br>租户中心<br>业务中心<br>前端中心<br>应用中心<br>模型中心<br>模块中心<br>任务中心<br>调度中心<br>配置中心<br>GIS中心<br>subgraph 平台服务<br>任务中心<br>GIS中心<br>end<br>end<br>subgraph 租户实例<br>应用实例<br>调度实例<br>模型实例<br>数仓实例<br>end<br><br>应用实例 –&gt; Postgresql<br>调度实例 –&gt; Postgresql<br>模型实例 –&gt; Postgresql<br>模型实例 –&gt; Hive<br>模型实例 –&gt; Redis<br>应用实例 –&gt; Redis<br>数仓实例 –&gt; Hive<br>数仓实例 –&gt; Postgresql<br>subgraph 数据平台<br>Hive<br>Postgresql<br>Redis<br>end</pre><br><br>产品架构图</center>
+<h2 id="3-SaaS产品架构是什么样子的？"><a href="#3-SaaS产品架构是什么样子的？" class="headerlink" title="3. SaaS产品架构是什么样子的？"></a>3. SaaS产品架构是什么样子的？</h2><center><br><br><pre class="mermaid">graph LR<br>user –&gt; nginx<br>nginx –&gt; 租户中心<br>租户中心 –&gt; 业务中心<br>租户中心 –&gt; 配置中心<br>业务中心 –&gt; 前端中心<br>业务中心 –&gt; 模块中心<br>业务中心 –&gt; 应用中心<br><br>业务中心 –&gt; 调度中心<br><br>业务中心 –&gt; 模型中心<br>业务中心 –&gt; GIS中心<br>业务中心 –&gt; 任务中心<br><br>前端中心 –&gt; 应用实例<br>模块中心 –&gt; 应用实例<br>应用中心 –&gt; 应用实例<br>应用中心 –&gt; 数仓实例<br>调度中心 –&gt; 调度实例<br>模型中心 –&gt; 模型实例<br>subgraph 平台组件<br>租户中心<br>业务中心<br>前端中心<br>应用中心<br>模型中心<br>模块中心<br>任务中心<br>调度中心<br>配置中心<br>GIS中心<br>subgraph 平台服务<br>任务中心<br>GIS中心<br>end<br>end<br>subgraph 租户实例<br>应用实例<br>调度实例<br>模型实例<br>数仓实例<br>end<br><br>应用实例 –&gt; Postgresql<br>调度实例 –&gt; Postgresql<br>模型实例 –&gt; Postgresql<br>模型实例 –&gt; Hive<br>模型实例 –&gt; Redis<br>应用实例 –&gt; Redis<br>数仓实例 –&gt; Hive<br>数仓实例 –&gt; Postgresql<br>subgraph 数据平台<br>Hive<br>Postgresql<br>Redis<br>end</pre><br><br>产品架构图</center>
 
 
 <h2 id="4-开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的"><a href="#4-开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的" class="headerlink" title="4. 开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的?"></a>4. 开发的时候用的是开发环境的配置，到了测试环境是怎么自动更新的?</h2><ol>

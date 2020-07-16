@@ -404,40 +404,23 @@
 <!-- <center> -->
 <!-- <center>
 <p> -->
-<p>简单系统</p>
-<pre class="mermaid">graph LR
-id(用户) --> web服务器
-web服务器 --> 数据库</pre>
-<!-- </p> -->
+<ol>
+<li>简单系统<br><pre class="mermaid">graph LR<br>id(用户) –&gt; web服务器<br>web服务器 –&gt; 数据库</pre><!-- </p> -->
 <!-- </center> -->
-
+</li>
+</ol>
 <!-- <cneter></center> -->
 <!-- </center> -->
-
 <!-- <center> -->
-复杂系统
-<pre class="mermaid">graph TD
-id(用户) --> Nginx负载均衡
-Nginx负载均衡 --> 应用服务器1
-Nginx负载均衡 --> 应用服务器2
-Nginx负载均衡 --> ...
-Nginx负载均衡 --> 应用服务器N
-subgraph 应用服务器集群
-应用服务器1
-应用服务器2
-...
-应用服务器N 
-end
-应用服务器1 --> 数据库
-应用服务器2 --> 数据库
- ...  --> 数据库
-应用服务器N  --> 数据库</pre>
-<!-- <center></center> -->
+<ol start="2">
+<li>复杂系统<br><pre class="mermaid">graph TD<br>id(用户) –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 应用服务器1<br>Nginx负载均衡 –&gt; 应用服务器2<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 应用服务器N<br>subgraph 应用服务器集群<br>应用服务器1<br>应用服务器2<br>…<br>应用服务器N<br>end<br>应用服务器1 –&gt; 数据库<br>应用服务器2 –&gt; 数据库<br>…  –&gt; 数据库<br>应用服务器N  –&gt; 数据库</pre><!-- <center></center> -->
 <!-- </center> -->
-
+</li>
+</ol>
 <!-- <center> -->
-成熟系统
-
+<ol start="3">
+<li>成熟系统</li>
+</ol>
 <pre class="mermaid">graph TD
 用户 --> Nginx负载均衡
 Nginx负载均衡 --> 商品服务
@@ -458,7 +441,9 @@ end
 
 <!-- 成熟阶段</center> -->
 <!-- <center> -->
-<p>微服务架构</p>
+<ol start="4">
+<li>微服务架构</li>
+</ol>
 <pre class="mermaid">graph TD
 用户 --> Nginx负载均衡
 Nginx负载均衡 --> 商品服务

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hub of Poppet">
 <meta property="og:description" content="总体安排 为了提升通识能力，基于公司业务，按照当前情况预计安排三次工程开发通识培训。  第一次：工作答疑系列。主要负责当前工作中工作岗位内容认知，模型流转过程，开发平台体系相关的疑问解答  第二次：基础培训系列。主要讲解计算机主要课程的相关概要  第三次：视野扩展系列。主要讲解一些主流的开发体系和通用做法。   培训大纲：经过调研，第一次的培训内容答疑问题安排如下：  我们提交模型之后，到客户看到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T07:55:32.199Z">
+<meta property="og:updated_time" content="2020-07-16T07:57:16.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工程能力培训系列一">
 <meta name="twitter:description" content="总体安排 为了提升通识能力，基于公司业务，按照当前情况预计安排三次工程开发通识培训。  第一次：工作答疑系列。主要负责当前工作中工作岗位内容认知，模型流转过程，开发平台体系相关的疑问解答  第二次：基础培训系列。主要讲解计算机主要课程的相关概要  第三次：视野扩展系列。主要讲解一些主流的开发体系和通用做法。   培训大纲：经过调研，第一次的培训内容答疑问题安排如下：  我们提交模型之后，到客户看到">
@@ -403,40 +403,23 @@
 <!-- <center> -->
 <!-- <center>
 <p> -->
-<p>简单系统</p>
-<pre class="mermaid">graph LR
-id(用户) --> web服务器
-web服务器 --> 数据库</pre>
-<!-- </p> -->
+<ol>
+<li>简单系统<br><pre class="mermaid">graph LR<br>id(用户) –&gt; web服务器<br>web服务器 –&gt; 数据库</pre><!-- </p> -->
 <!-- </center> -->
-
+</li>
+</ol>
 <!-- <cneter></center> -->
 <!-- </center> -->
-
 <!-- <center> -->
-复杂系统
-<pre class="mermaid">graph TD
-id(用户) --> Nginx负载均衡
-Nginx负载均衡 --> 应用服务器1
-Nginx负载均衡 --> 应用服务器2
-Nginx负载均衡 --> ...
-Nginx负载均衡 --> 应用服务器N
-subgraph 应用服务器集群
-应用服务器1
-应用服务器2
-...
-应用服务器N 
-end
-应用服务器1 --> 数据库
-应用服务器2 --> 数据库
- ...  --> 数据库
-应用服务器N  --> 数据库</pre>
-<!-- <center></center> -->
+<ol start="2">
+<li>复杂系统<br><pre class="mermaid">graph TD<br>id(用户) –&gt; Nginx负载均衡<br>Nginx负载均衡 –&gt; 应用服务器1<br>Nginx负载均衡 –&gt; 应用服务器2<br>Nginx负载均衡 –&gt; …<br>Nginx负载均衡 –&gt; 应用服务器N<br>subgraph 应用服务器集群<br>应用服务器1<br>应用服务器2<br>…<br>应用服务器N<br>end<br>应用服务器1 –&gt; 数据库<br>应用服务器2 –&gt; 数据库<br>…  –&gt; 数据库<br>应用服务器N  –&gt; 数据库</pre><!-- <center></center> -->
 <!-- </center> -->
-
+</li>
+</ol>
 <!-- <center> -->
-成熟系统
-
+<ol start="3">
+<li>成熟系统</li>
+</ol>
 <pre class="mermaid">graph TD
 用户 --> Nginx负载均衡
 Nginx负载均衡 --> 商品服务
@@ -457,7 +440,9 @@ end
 
 <!-- 成熟阶段</center> -->
 <!-- <center> -->
-<p>微服务架构</p>
+<ol start="4">
+<li>微服务架构</li>
+</ol>
 <pre class="mermaid">graph TD
 用户 --> Nginx负载均衡
 Nginx负载均衡 --> 商品服务
